@@ -1,5 +1,7 @@
 package com.codingmaniacs.codility;
 
+import java.util.Arrays;
+
 public class NumericChallenges {
     /**
      * Given a number it shuffles the digits taking one from the front and one from the end until we reach the middle.
@@ -24,5 +26,25 @@ public class NumericChallenges {
             sb.append(numberStr.charAt(length / 2));
         }
         return Integer.valueOf(sb.toString());
+    }
+
+    /**
+     * Finds the binary gap of the given number
+     * Binary gap is the max number of consecutive zeros between ones on the binary representation of the number.
+     *
+     * @param number Number
+     * @return Integer representing the binary gap on the given number.
+     */
+    public static int findBinaryGap(int number) {
+        String binaryRep = Integer.toBinaryString(number);
+
+        String trimmedRep = binaryRep.substring(1, binaryRep.lastIndexOf("1"));
+
+        return Arrays
+                .stream(trimmedRep.split("1"))
+                .mapToInt(String::length)
+                .max()
+                .orElse(0);
+
     }
 }
