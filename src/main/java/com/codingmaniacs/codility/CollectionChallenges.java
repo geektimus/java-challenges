@@ -1,5 +1,7 @@
 package com.codingmaniacs.codility;
 
+import java.util.Arrays;
+
 public class CollectionChallenges {
     /**
      * Finds if the given array can be sorted moving only two values on a single swap
@@ -49,5 +51,30 @@ public class CollectionChallenges {
         }
         return true;
 
+    }
+
+    /**
+     * Performs an element shift to the right step times.
+     *
+     * @param ns   Number array
+     * @param step step of the shift right
+     * @return number array shifted to the right step times.
+     */
+    public static int[] arrayShiftRight(int[] ns, int step) {
+        int nsLength = ns.length;
+        if (nsLength == 0 || nsLength == 1 || step == nsLength)
+            return ns;
+
+        int[] res = new int[nsLength];
+
+        step = (step % nsLength);
+
+        int[] l = Arrays.copyOfRange(ns, 0, nsLength - step);
+        int[] r = Arrays.copyOfRange(ns, nsLength - step, nsLength);
+
+        System.arraycopy(r, 0, res, 0, r.length);
+        System.arraycopy(l, 0, res, r.length, l.length);
+
+        return res;
     }
 }

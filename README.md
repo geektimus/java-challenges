@@ -28,6 +28,9 @@ by spaces (" ").
 ### Binary Gap
 A binary gap within a positive integer N is any maximal sequence of consecutive zeros that is surrounded by ones at both ends in the binary representation of N.
 
+### CyclicRotation
+We need to perform an array shift to the right a given number of times.
+
 ### Hacker Rank
 #### Odd number generator.
 We need to write a function that return all the odd numbers on a range given the start and the end of the range as
