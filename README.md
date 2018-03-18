@@ -39,3 +39,6 @@ integers. This collection will include the start and end integers if they are od
 ### Books
 #### Unique characters
 We need to write a function that will tell us if all the characters on a given string are unique.
+
+### Check permutation
+We need to write a function that given two strings let us find if one is a permutation of the other.
