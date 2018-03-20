@@ -42,3 +42,7 @@ We need to write a function that will tell us if all the characters on a given s
 
 ### Check permutation
 We need to write a function that given two strings let us find if one is a permutation of the other.
+
+### Others (Challenges proposed by Friends or Solved on hackatons)
+#### Recursively reverse a string
+Given a string, reverse the characters and return.
