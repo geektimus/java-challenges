@@ -96,4 +96,22 @@ public class CollectionChallengesTests {
         int[] expected = {1, 2, 3};
         assertArrayEquals(expected, result);
     }
+
+    @Test
+    public void findFrogJumpsShortSequence() {
+        int[] leaves = {1, 3, 2, 4};
+        int target = 2;
+        int result = CollectionChallenges.findFrogJumpsOverLeaves(target, leaves);
+        int expected = 2;
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void findFrogJumpsLongSequence() {
+        int[] leaves = {1, 3, 1, 4, 2, 3, 5, 4};
+        int target = 5;
+        int result = CollectionChallenges.findFrogJumpsOverLeaves(target, leaves);
+        int expected = 6;
+        assertEquals(expected, result);
+    }
 }

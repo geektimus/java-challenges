@@ -31,6 +31,12 @@ A binary gap within a positive integer N is any maximal sequence of consecutive 
 ### CyclicRotation
 We need to perform an array shift to the right a given number of times.
 
+### Frog Jumps
+A little frog wants to cross to the other side of the river, but it can only jump to the leaves that fall on the water 
+and only then the complete path from 0 to target has all required leaves.
+Given the starting position 0, and a non empty array indexed by each second and the position of the leaf. Find the earliest
+time when the frog can jump all the way from 0 to the target position.
+
 ### Hacker Rank
 #### Odd number generator.
 We need to write a function that return all the odd numbers on a range given the start and the end of the range as

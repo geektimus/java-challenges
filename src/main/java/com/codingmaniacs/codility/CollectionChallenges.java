@@ -1,6 +1,6 @@
 package com.codingmaniacs.codility;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class CollectionChallenges {
     /**
@@ -76,5 +76,20 @@ public class CollectionChallenges {
         System.arraycopy(l, 0, res, r.length, l.length);
 
         return res;
+    }
+
+    public static int findFrogJumpsOverLeaves(int target, int[] leaves) {
+        Set<Integer> storage = new HashSet<>(target);
+        int index = -1;
+        for (int i = 0; i < leaves.length; i++) {
+            if (leaves[i] <= target) {
+                storage.add(leaves[i]);
+                if (storage.size() == target) {
+                    index = i;
+                    break;
+                }
+            }
+        }
+        return index;
     }
 }
