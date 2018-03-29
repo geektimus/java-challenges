@@ -50,4 +50,49 @@ public class StringChallengesTests {
         String result = StringChallenges.reverse(str);
         assertEquals("The reverse of an empty string is the same empty string", expected, result);
     }
+
+    @Test
+    public void findFirstOccurrenceOfCharEmptyString() {
+        String str = "";
+        String expected = "";
+
+        String result = StringChallenges.findFirstRepeatedChar(str);
+        assertEquals("There's not repeated char on an empty string", expected, result);
+    }
+
+    @Test
+    public void findFirstOccurrenceOfCharNullString() {
+
+        String expected = "";
+
+        String result = StringChallenges.findFirstRepeatedChar(null);
+        assertEquals("There's not repeated char on an null string", expected, result);
+    }
+
+    @Test
+    public void findFirstOccurrenceOfCharOneElementString() {
+        String str = "a";
+        String expected = "";
+
+        String result = StringChallenges.findFirstRepeatedChar(str);
+        assertEquals("Since there's no duplicates it should return \"\"", expected, result);
+    }
+
+    @Test
+    public void findFirstOccurrenceOfChaTwoRepeatedElementString() {
+        String str = "aa";
+        String expected = "a";
+
+        String result = StringChallenges.findFirstRepeatedChar(str);
+        assertEquals("Since the letter a is repeated once, that's the solution", expected, result);
+    }
+
+    @Test
+    public void findFirstOccurrenceOfCharLongerString() {
+        String str = "bdcdba";
+        String expected = "d";
+
+        String result = StringChallenges.findFirstRepeatedChar(str);
+        assertEquals("Since the letter a is repeated once, that's the solution", expected, result);
+    }
 }

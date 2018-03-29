@@ -51,4 +51,7 @@ We need to write a function that given two strings let us find if one is a permu
 
 ### Others (Challenges proposed by Friends or Solved on hackatons)
 #### Recursively reverse a string
-Given a string, reverse the characters and return.
+Given a string, reverse the characters and return
+
+#### Find the first char that repeats it self on a given string
+Given a string, find the first chat that repeats it self.
