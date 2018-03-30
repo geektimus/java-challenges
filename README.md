@@ -37,6 +37,10 @@ and only then the complete path from 0 to target has all required leaves.
 Given the starting position 0, and a non empty array indexed by each second and the position of the leaf. Find the earliest
 time when the frog can jump all the way from 0 to the target position.
 
+### Permutation Check
+We need to perform a check on an array to see if it's a permutation of N elements where N original size of the array.
+**Note:** A permutation is a sequence containing each element from 1 to N once, and only once.
+
 ### Hacker Rank
 #### Odd number generator.
 We need to write a function that return all the odd numbers on a range given the start and the end of the range as

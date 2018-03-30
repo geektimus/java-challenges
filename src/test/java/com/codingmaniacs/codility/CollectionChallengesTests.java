@@ -113,4 +113,39 @@ public class CollectionChallengesTests {
         int expected = 6;
         assertEquals(expected, result);
     }
+
+    @Test
+    public void findIfArrayIsPermDuplicatedElements() {
+        int[] arr = {1, 1};
+        int result = CollectionChallenges.isPermutation(arr);
+        assertEquals(0, result);
+    }
+
+    @Test
+    public void findIfArrayIsPermShortUnorderedArr() {
+        int[] arr = {2, 1};
+        int result = CollectionChallenges.isPermutation(arr);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void findIfArrayIsPermShortOrderedArr() {
+        int[] arr = {1, 2};
+        int result = CollectionChallenges.isPermutation(arr);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void findIfArrayIsPermLongUnorderedArr() {
+        int[] arr = {4, 1, 3, 2};
+        int result = CollectionChallenges.isPermutation(arr);
+        assertEquals(1, result);
+    }
+
+    @Test
+    public void findIfArrayIsPermLongArrMissingEl() {
+        int[] arr = {4, 1, 3};
+        int result = CollectionChallenges.isPermutation(arr);
+        assertEquals(0, result);
+    }
 }

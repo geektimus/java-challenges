@@ -1,6 +1,8 @@
 package com.codingmaniacs.codility;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CollectionChallenges {
     /**
@@ -99,5 +101,26 @@ public class CollectionChallenges {
             }
         }
         return index;
+    }
+
+    /**
+     * Find if an array is a permutation of n elements
+     *
+     * @param arr Array of numbers
+     * @return True if arr is a permutation of n elements, False otherwise
+     * @apiNote A permutation is a sequence containing each element from 1 to N once, and only once.
+     */
+    public static int isPermutation(int[] arr) {
+        int n = arr.length;
+
+        Set<Integer> numbers = new HashSet<>(n);
+
+        for (int el : arr) {
+            if (el > n)
+                return 0;
+            numbers.add(el);
+        }
+
+        return numbers.size() == n ? 1 : 0;
     }
 }
