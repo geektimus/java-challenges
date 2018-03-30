@@ -79,6 +79,13 @@ public class CollectionChallenges {
         return res;
     }
 
+    /**
+     * Finds the earliest time when the frog can jump all the way from 0 to the target position
+     *
+     * @param target End position / The goal position of the small frog
+     * @param leaves Array of the positions where the leaves fall indexed by second.
+     * @return the earliest time when the frog can reach target given the leaves array
+     */
     public static int findFrogJumpsOverLeaves(int target, int[] leaves) {
         Set<Integer> storage = new HashSet<>(target);
         int index = -1;
