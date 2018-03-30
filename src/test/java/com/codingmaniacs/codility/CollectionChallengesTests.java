@@ -148,4 +148,68 @@ public class CollectionChallengesTests {
         int result = CollectionChallenges.isPermutation(arr);
         assertEquals(0, result);
     }
+
+    @Test
+    public void counterOperationsOneIncreaseOperation() {
+        int[] arr = {3};
+        int n = 5;
+        int[] expected = {0, 0, 1, 0, 0};
+        int[] result = CollectionChallenges.counterOperations(n, arr);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void counterOperationsOneUpdateAllOperation() {
+        int[] arr = {6};
+        int n = 5;
+        int[] expected = {0, 0, 0, 0, 0};
+        int[] result = CollectionChallenges.counterOperations(n, arr);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void counterOperationsOneUpdateAllAfterIncrease() {
+        int[] arr = {3, 6};
+        int n = 5;
+        int[] expected = {1, 1, 1, 1, 1};
+        int[] result = CollectionChallenges.counterOperations(n, arr);
+        assertArrayEquals(expected, result);
+    }
+
+
+    @Test
+    public void counterOperationsOnlyIncreaseSamePosition() {
+        int[] arr = {1, 1, 1, 1, 1};
+        int n = 5;
+        int[] expected = {5, 0, 0, 0, 0};
+        int[] result = CollectionChallenges.counterOperations(n, arr);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void counterOperationsOnlyIncreaseDifferentPositions() {
+        int[] arr = {4, 2, 2, 3};
+        int n = 4;
+        int[] expected = {0, 2, 1, 1};
+        int[] result = CollectionChallenges.counterOperations(n, arr);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void counterOperationsOnlyMax() {
+        int[] arr = {2, 5, 5};
+        int n = 4;
+        int[] expected = {1, 1, 1, 1};
+        int[] result = CollectionChallenges.counterOperations(n, arr);
+        assertArrayEquals(expected, result);
+    }
+
+    @Test
+    public void counterOperationsComplexSequence() {
+        int[] arr = {3, 4, 4, 6, 1, 4, 4};
+        int n = 5;
+        int[] expected = {3, 2, 2, 4, 2};
+        int[] result = CollectionChallenges.counterOperations(n, arr);
+        assertArrayEquals(expected, result);
+    }
 }

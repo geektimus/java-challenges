@@ -123,4 +123,48 @@ public class CollectionChallenges {
 
         return numbers.size() == n ? 1 : 0;
     }
+
+
+    /**
+     * This function applies a set of operations over an array of n counters
+     *
+     * @param n  number of counters to be returned
+     * @param op Array containing the operations to be applied to the counters.
+     * @return an Array with the last state after applying the operations.
+     */
+    public static int[] counterOperations(int n, int[] op) {
+        int[] counters = new int[n];
+        int baseUpdateValue = -1;
+        int currentMax = -1;
+
+        for (int el : op) {
+            if (el == n + 1) {
+                // Mark the current value to be used as a base for the next increment.
+                // The next increment for any position should be baseUpdateValue + 1
+                baseUpdateValue = currentMax;
+            } else {
+                // Since the position (index) is the counter value - 1
+                int pos = el - 1;
+                if (counters[pos] < baseUpdateValue) {
+                    // The value was not updated yet
+                    counters[pos] = baseUpdateValue + 1;
+                } else
+                    counters[pos] = counters[pos] + 1;
+
+                // If the value updated is now the max of all the elements we update the current max
+                if (counters[pos] > currentMax) {
+                    currentMax = counters[pos];
+                }
+            }
+        }
+
+        // We need to update the remaining values if they were not updated on the for loop
+        for (int i = 0; i < counters.length; i++) {
+            if (counters[i] < baseUpdateValue) {
+                counters[i] = baseUpdateValue;
+            }
+        }
+
+        return counters;
+    }
 }
