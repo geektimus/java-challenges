@@ -47,4 +47,34 @@ public class NumericChallenges {
                 .orElse(0);
 
     }
+
+    /**
+     * Returns the minimum number of plays a player can make to earn {{@code chips}} using max of {{@code allInPlays}} plays
+     *
+     * @param chips      Number of chips the player earned on his visit to the casino.
+     * @param allInPlays Number of all in moves that he used.
+     * @return Minimum number of plays a player can make to earn {{@code chips}}
+     */
+    public static int minimumPlays(int chips, int allInPlays) {
+        if (allInPlays == 0) {
+            return chips - 1;
+        }
+
+        System.out.println("Initial: {Chips: " + chips + ", AllIn: " + allInPlays + "}");
+
+        int plays = 0;
+
+        while (chips > 1) {
+            if (chips % 2 == 0 && allInPlays > 0) {
+                allInPlays--;
+                chips /= 2;
+                plays++;
+            } else {
+                chips--;
+                plays++;
+            }
+            System.out.println("Loop: {Chips: " + chips + ", AllIn: " + allInPlays + "}");
+        }
+        return plays;
+    }
 }

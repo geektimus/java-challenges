@@ -85,4 +85,28 @@ public class NumericChallengesTests {
         int binaryGap = NumericChallenges.findBinaryGap(number);
         assertEquals("It should return five because there's no binary gap on 1148223232 (01000100011100000111111100000000)", expectedGap, binaryGap);
     }
+
+    @Test
+    public void findTheNumberOfPlaysNoAllIns() {
+        int chips = 8;
+        int allInPlays = 0;
+        int result = NumericChallenges.minimumPlays(chips, allInPlays);
+        assertEquals("It should return seven as there's no all ins and we have eight chips", 7, result);
+    }
+
+    @Test
+    public void findTheNumberOfPlaysTwoAllIns() {
+        int chips = 18;
+        int allInPlays = 2;
+        int result = NumericChallenges.minimumPlays(chips, allInPlays);
+        assertEquals("It should return six as it's the minimum plays to reach 18", 6, result);
+    }
+
+    @Test
+    public void findTheNumberOfPlaysLotsOfAllIns() {
+        int chips = 10;
+        int allInPlays = 10;
+        int result = NumericChallenges.minimumPlays(chips, allInPlays);
+        assertEquals("It should return four as it's the minimum plays to reach 10 (we don't use all the all ins", 4, result);
+    }
 }

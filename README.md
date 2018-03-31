@@ -41,6 +41,10 @@ time when the frog can jump all the way from 0 to the target position.
 We need to perform a check on an array to see if it's a permutation of N elements where N original size of the array.
 **Note:** A permutation is a sequence containing each element from 1 to N once, and only once.
 
+### Minimum Number of Plays on a Casino (*)
+A guy walks out of a Casino with N chips. We know that he played W times an all in.
+We need to find the minimum number of plays he could play on the casino to earn those N chips.
+
 ### Hacker Rank
 #### Odd number generator.
 We need to write a function that return all the odd numbers on a range given the start and the end of the range as
