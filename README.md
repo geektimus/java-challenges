@@ -45,6 +45,10 @@ We need to perform a check on an array to see if it's a permutation of N element
 A guy walks out of a Casino with N chips. We know that he played W times an all in.
 We need to find the minimum number of plays he could play on the casino to earn those N chips.
 
+### Factory of Shoes (*)
+We have a line of shoes composed of Left (L) and Right (R) shoes. We want to assign a group of workers to work on the
+shoes, but we need to guarantee that we assign each worker a group of shoes that contains the same number of L and R shoes.
+
 ### Hacker Rank
 #### Odd number generator.
 We need to write a function that return all the odd numbers on a range given the start and the end of the range as

@@ -20,4 +20,32 @@ public class StringChallenges {
                 .max()
                 .orElse(0);
     }
+
+
+    /**
+     * Given a line of shoes (L,R), we need to find the number of workers that can work on them given the condition that
+     * A worker can work only on a group where the group contains the same number of L and R shoes.
+     *
+     * @param lineOfShoes String representing the line of shoes that we are processing.
+     * @return Number of workers that can be assigned to work on the shoes.
+     */
+    public static int countMinWorkers(String lineOfShoes) {
+        if (lineOfShoes.length() == 2)
+            return 1;
+
+        int workers = 0;
+        int lCount = 0, rCount = 0;
+
+        for (Character shoe : lineOfShoes.toCharArray()) {
+            if (shoe.toString().equals("L")) {
+                lCount++;
+            } else {
+                rCount++;
+            }
+            if (lCount == rCount) {
+                workers++;
+            }
+        }
+        return workers;
+    }
 }
