@@ -60,12 +60,11 @@ public class NumericChallenges {
             return chips - 1;
         }
 
-        System.out.println("Initial: {Chips: " + chips + ", AllIn: " + allInPlays + "}");
-
         int plays = 0;
 
-        while (chips > 1) {
-            if (chips % 2 == 0 && allInPlays > 0) {
+        // loop while we have chips or while we have all in plays to make
+        while (chips > 1 && allInPlays > 0) {
+            if (chips % 2 == 0) {
                 allInPlays--;
                 chips /= 2;
                 plays++;
@@ -73,7 +72,11 @@ public class NumericChallenges {
                 chips--;
                 plays++;
             }
-            System.out.println("Loop: {Chips: " + chips + ", AllIn: " + allInPlays + "}");
+        }
+
+        // Sum the rest of the chips
+        if (chips > 1) {
+            plays += chips - 1;
         }
         return plays;
     }
