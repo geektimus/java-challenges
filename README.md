@@ -65,6 +65,12 @@ We need to write a function that will tell us if all the characters on a given s
 ### Check permutation
 We need to write a function that given two strings let us find if one is a permutation of the other.
 
+### URL Friendly String
+Given a String and its true length, transform the string to a URL friendly string by replacing the spaces by %20
+
+**Note:** We can assume that the string contains a length that allow us to store the additional chars
+without having to allocate a new string.
+
 ### Others (Challenges proposed by Friends or Solved on hackatons)
 #### Recursively reverse a string
 Given a string, reverse the characters and return

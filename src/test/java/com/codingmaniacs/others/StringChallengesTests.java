@@ -95,4 +95,34 @@ public class StringChallengesTests {
         String result = StringChallenges.findFirstRepeatedChar(str);
         assertEquals("Since the letter a is repeated once, that's the solution", expected, result);
     }
+
+    @Test
+    public void transformStringToURLNoSpaces() {
+        String str = "helloworld";
+        int trueLength = 10;
+        String expected = "helloworld";
+
+        String result = StringChallenges.URLlify(str, trueLength);
+        assertEquals("We don't have spaces to parse so we expect the same string", expected, result);
+    }
+
+    @Test
+    public void transformStringToURLTwoSpaces() {
+        String str = "hello world! example    ";
+        int trueLength = 20;
+        String expected = "hello%20world!%20example";
+
+        String result = StringChallenges.URLlify(str, trueLength);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void transformStringToURLFourSpaces() {
+        String str = "this is my friendly command        ";
+        int trueLength = 27;
+        String expected = "this%20is%20my%20friendly%20command";
+
+        String result = StringChallenges.URLlify(str, trueLength);
+        assertEquals(expected, result);
+    }
 }

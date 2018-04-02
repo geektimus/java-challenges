@@ -39,4 +39,44 @@ class StringChallenges {
         }
         return "";
     }
+
+    /**
+     * Given a String and its true length, transform the string to a URL friendly string by replacing the spaces by %20
+     *
+     * @param str        String to be transformed
+     * @param trueLength True size of the string without the trailing spaces.
+     * @return A URL friendly string with the spaces replaced.
+     */
+    static String URLlify(String str, int trueLength) {
+        if (str.length() == trueLength)
+            return str;
+
+        char[] chars = str.toCharArray();
+        int spaces = 0;
+
+        // Count spaces
+        for (int i = 0; i < trueLength; i++) {
+            if (chars[i] == ' ') {
+                spaces++;
+            }
+        }
+
+        if (trueLength < str.length()) chars[trueLength] = '\0';
+
+        // Replace the string backwards so we don't need to worry about overriding data.
+        int index = trueLength + spaces * 2;
+        for (int j = trueLength - 1; j >= 0; j--) {
+            if (chars[j] == ' ') {
+                chars[index - 1] = '0';
+                chars[index - 2] = '2';
+                chars[index - 3] = '%';
+                index = index - 3;
+            } else {
+                chars[index - 1] = chars[j];
+                index--;
+            }
+        }
+
+        return new String(chars);
+    }
 }
