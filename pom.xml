@@ -17,7 +17,7 @@
 
         <!-- Plugins -->
         <mvn-compiler.version>3.5.1</mvn-compiler.version>
-        <mvn-surfire.version>2.20.1</mvn-surfire.version>
+        <mvn-surfire.version>2.22.1</mvn-surfire.version>
     </properties>
 
     <dependencies>
