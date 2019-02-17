@@ -12,7 +12,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.jdk.version>1.8</java.jdk.version>
+        <java.jdk.version>11</java.jdk.version>
         <junit.version>4.12</junit.version>
 
         <!-- Plugins -->

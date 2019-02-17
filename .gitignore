@@ -1,6 +1,8 @@
 ### Intellij ###
 .idea
 *.iml
+*.ipr
+*.iws
 
 ### Go ###
 # Binaries for programs and plugins
