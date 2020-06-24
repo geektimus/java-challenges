@@ -1,0 +1,20 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+}
+
+group = 'com.codingmaniacs.challenges'
+version = '1.0-SNAPSHOT'
+description = 'Java 8 Challenges'
+sourceCompatibility = '8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
