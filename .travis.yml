@@ -2,12 +2,11 @@ language: java
 jdk:
   - oraclejdk11
 
-# blocklist
+
 branches:
+  # safelist
+  only:
+    - master
+  # blocklist
   except:
   - /^feature.*$/
-
-# safelist
-branches:
-  only:
-  - master
