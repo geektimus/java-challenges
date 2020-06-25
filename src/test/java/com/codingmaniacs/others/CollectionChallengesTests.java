@@ -20,7 +20,7 @@ public class CollectionChallengesTests {
         };
 
         String[] result = CollectionChallenges.sortLogsByLevel(myLogInfo);
-        assertArrayEquals("The lists should be the same as we don't consider Level precedence", expected, result);
+        assertArrayEquals("The list should be ordered considering the level precedence", expected, result);
     }
 
     @Test
@@ -42,7 +42,7 @@ public class CollectionChallengesTests {
                 "1592777112 DEBUG com.codingmaniacs.core.Transaction"};
 
         String[] result = CollectionChallenges.sortLogsByLevel(myLogInfo);
-        assertArrayEquals("The lists should be the same as we don't consider Level order", expected, result);
+        assertArrayEquals("The list should be ordered considering the level precedence", expected, result);
     }
 
     @Test
@@ -83,7 +83,7 @@ public class CollectionChallengesTests {
 
 
         String[] result = CollectionChallenges.sortLogsByLevel(myLogInfo);
-        assertArrayEquals("The lists should be the same as we don't consider Level order", expected, result);
+        assertArrayEquals("The list should be ordered considering the level precedence", expected, result);
     }
 
     @Test
@@ -100,7 +100,7 @@ public class CollectionChallengesTests {
         };
 
         String[] result = CollectionChallenges.sortLogsByTs(myLogInfo);
-        assertArrayEquals("The lists should be the same as we don't consider Level precedence", expected, result);
+        assertArrayEquals("The list should be ordered considering the timestamp", expected, result);
     }
 
     @Test
@@ -123,7 +123,7 @@ public class CollectionChallengesTests {
         };
 
         String[] result = CollectionChallenges.sortLogsByTs(myLogInfo);
-        assertArrayEquals("The lists should be the same as we don't consider Level order", expected, result);
+        assertArrayEquals("The list should be ordered considering the timestamp", expected, result);
     }
 
     @Test
@@ -164,6 +164,6 @@ public class CollectionChallengesTests {
 
 
         String[] result = CollectionChallenges.sortLogsByTs(myLogInfo);
-        assertArrayEquals("The lists should be the same as we don't consider Level order", expected, result);
+        assertArrayEquals("The list should be ordered considering the timestamp", expected, result);
     }
 }
