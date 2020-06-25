@@ -9,6 +9,7 @@ public class CollectionChallenges {
 
     private static final Pattern pattern = Pattern.compile("^(\\d+)\\s(\\w+)\\s(.*)$");
 
+    @SuppressWarnings("unused")
     private enum LogLevel {
         OFF,
         FATAL,
@@ -17,7 +18,7 @@ public class CollectionChallenges {
         INFO,
         DEBUG,
         TRACE,
-        ALL;
+        ALL
     }
 
     private static class LogEntry {
@@ -61,19 +62,14 @@ public class CollectionChallenges {
         return new LogEntry(ts, ll, content);
     }
 
-    public static String[] sortLogs(String[] myLogInfo, Comparator<LogEntry> comparator) {
+    public static String[] sortLogs(String[] myLogInfo) {
+        Comparator <LogEntry> comparator = Comparator.comparing(LogEntry::getLevel)
+                .thenComparing(LogEntry::getTimestamp);
+
         return Arrays.stream(myLogInfo)
                 .map(CollectionChallenges::getLogEntryFromLine)
                 .sorted(comparator)
                 .map(LogEntry::toString)
                 .toArray(String[]::new);
-    }
-
-    public static String[] sortLogsByLevel(String[] myLogInfo) {
-        return sortLogs(myLogInfo, Comparator.comparing(LogEntry::getLevel));
-    }
-
-    public static String[] sortLogsByTs(String[] myLogInfo) {
-        return sortLogs(myLogInfo, Comparator.comparing(LogEntry::getTimestamp));
     }
 }
