@@ -1,23 +1,13 @@
 package com.codingmaniacs.others;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CollectionChallenges {
 
     private static final Pattern pattern = Pattern.compile("^(\\d+)\\s(\\w+)\\s(.*)$");
-
-    public static String[] sortLogsByLevel(String[] myLogInfo) {
-        List<LogEntry> result = sortLogEntriesByLevel(parseLinesToLogEntries(myLogInfo));
-        return result.stream().map(LogEntry::toString).toArray(String[]::new);
-    }
-    public static String[] sortLogsByTs(String[] myLogInfo) {
-        List<LogEntry> result = sortLogEntriesByTs(parseLinesToLogEntries(myLogInfo));
-        return result.stream().map(LogEntry::toString).toArray(String[]::new);
-    }
 
     private enum LogLevel {
         OFF,
@@ -55,15 +45,6 @@ public class CollectionChallenges {
         }
     }
 
-    public static List<LogEntry> parseLinesToLogEntries(String[] logLines) {
-        List<LogEntry> result = new ArrayList<>(logLines.length);
-
-        for (String line : logLines) {
-            result.add(getLogEntryFromLine(line));
-        }
-        return result;
-    }
-
     public static LogEntry getLogEntryFromLine(String logLine) {
         Matcher matcher = pattern.matcher(logLine);
 
@@ -80,13 +61,19 @@ public class CollectionChallenges {
         return new LogEntry(ts, ll, content);
     }
 
-    public static List<LogEntry> sortLogEntriesByLevel(List<LogEntry> entries) {
-        entries.sort(Comparator.comparing(LogEntry::getLevel));
-        return entries;
+    public static String[] sortLogs(String[] myLogInfo, Comparator<LogEntry> comparator) {
+        return Arrays.stream(myLogInfo)
+                .map(CollectionChallenges::getLogEntryFromLine)
+                .sorted(comparator)
+                .map(LogEntry::toString)
+                .toArray(String[]::new);
     }
 
-    public static List<LogEntry> sortLogEntriesByTs(List<LogEntry> entries) {
-        entries.sort(Comparator.comparing(LogEntry::getTimestamp));
-        return entries;
+    public static String[] sortLogsByLevel(String[] myLogInfo) {
+        return sortLogs(myLogInfo, Comparator.comparing(LogEntry::getLevel));
+    }
+
+    public static String[] sortLogsByTs(String[] myLogInfo) {
+        return sortLogs(myLogInfo, Comparator.comparing(LogEntry::getTimestamp));
     }
 }
