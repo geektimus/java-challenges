@@ -94,6 +94,10 @@ without having to allocate a new string.
 
 Given a string, reverse the characters and return
 
-#### Find the first char that repeats it self on a given string
+#### Find the first char that repeats itself on a given string
 
-Given a string, find the first chat that repeats it self.
+Given a string, find the first chat that repeats itself.
+
+#### Sort server logs by two fields
+
+We had to sort a list of logs given the log level, or the event timestamp.
