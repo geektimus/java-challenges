@@ -1,7 +1,10 @@
 package com.codingmaniacs.others;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 class StringChallenges {
     /**
@@ -78,5 +81,40 @@ class StringChallenges {
         }
 
         return new String(chars);
+    }
+
+    public static String balancedBraces(String str) {
+        String[] braces = str.split("");
+
+        Map<String, String> symbolPairs = Stream.of(new String[][] {
+                { "{", "}" },
+                { "[", "]" },
+                { "(", ")" },
+        }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
+
+        Map<String, Integer> result = Stream.of(new [][] {
+                { "{", 0 },
+                { "[", 0 },
+                { "(", 0 },
+        }).collect(Collectors.toMap(data -> data[0], data -> data[1]));
+
+        String currentSymbol = braces[0];
+        int counter = 1;
+        for (int i = 1; i < braces.length - 1; i++) {
+            if (braces[i].equals(symbolPairs.getOrDefault(currentSymbol, ""))) {
+                currentSymbol = braces[i + 1];
+                counter--;
+            } else {
+                currentSymbol = braces[i];
+                counter++;
+            }
+        }
+
+        return counter==0 ? "YES" : "NO";
+
+    }
+
+    public static String[] balancedBraces(String[] str) {
+        return Arrays.stream(str).map(StringChallenges::balancedBraces).toArray(String[]::new);
     }
 }

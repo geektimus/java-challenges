@@ -2,6 +2,7 @@ package com.codingmaniacs.others;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class StringChallengesTests {
@@ -125,4 +126,42 @@ public class StringChallengesTests {
         String result = StringChallenges.URLlify(str, trueLength);
         assertEquals(expected, result);
     }
+
+    @Test
+    public void checkBalancedBracesYES() {
+        String str = "(){}[]";
+        String expected = "YES";
+
+        String result = StringChallenges.balancedBraces(str);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void checkBalancedBracesNO() {
+        String str = "{[}]}";
+        String expected = "NO";
+
+        String result = StringChallenges.balancedBraces(str);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void checkBalancedBracesNested() {
+        String str = "[](){()}";
+        String expected = "YES";
+
+        String result = StringChallenges.balancedBraces(str);
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void checkBalancedBracesMultiple() {
+
+        String[] str = new String[]{"{[}]}", "(){}[]"};
+        String[] expected = new String[]{"NO", "YES"};
+
+        String[] result = StringChallenges.balancedBraces(str);
+        assertArrayEquals(expected, result);
+    }
+
 }
